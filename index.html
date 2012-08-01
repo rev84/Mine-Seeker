@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<title>Mine Seeker</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/themes/ui-lightness/jquery-ui.css">
+<script src="./sound.js"></script>
+<script src="./mineseeker.js"></script>
+<style>
+h1{
+	border-left:20px solid #669999;
+	border-right:20px solid #669999;
+	padding:8px 0 8px 10px;
+	background-color:#ededed;
+	text-align:center;
+}
+.ads{ text-align : center; }
+.ui-dialog { font-size: 12px;word-break: break-all;}
+.kousin {
+	overflow:auto;
+	width:500px; height:100px;
+	padding:5px;
+	border:2px dotted #5bc6ed;
+	color:#000000;
+	line-height:1.5em;
+}
+</style>
+</head>
+<body oncontextmenu="return false" onselectstart="return false">
+<H1>Mine Seeker</H1>
+<div class="ads">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-8523455066091917";
+/* マインスイーパフラグ */
+google_ad_slot = "7663609769";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+<div id="main">
+<div id="score" style="position:absolute; left:0px;">
+</div>
+
+<div id="game" style="position:absolute; left:210px;">
+</div>
+
+</div>
+
+
+<div id="setup">
+<pre>
+<p>
+Mine Seeker　へ　ようこそ！
+このゲームは、マインスイーパを二人で交互にやって
+「地雷を多くクリックした方が勝ち」というゲームです。
+</p><table>
+<tr>
+<td width="400" valign="top">
+
+<table>
+<tr>
+<th>Size</th>
+<td>縦<input type="text" id="height" name="height" value="16" style="width:25px;">×横<input type="text" id="width" name="width" value="16" style="width:25px;"></td>
+</tr>
+
+<tr>
+<th>地雷の割合</th>
+<td><input type="text" id="minePer" name="minePer" value="20" style="width:25px;">％（奇数に切り下げます）</td>
+</tr>
+
+<tr>
+<th>AI</th>
+<td><select id="ai" name="ai">
+<option value="">▼選択してください</option>
+<option value="AI_tenko">てんこ　★0</option>
+<option value="AI_anko">あんこ　★1</option>
+</select>
+</td>
+</tr>
+</table>
+
+</td>
+
+<td width="300" valign="top">
+<strong>対戦相手の概要</strong>
+<div id="aiDesc"></div>
+</td>
+
+</tr>
+</table>
+<strong>Info</strong>
+<div class="kousin">
+2012/08/02　右クリックで×や？でマークできるようにした
+　　　　　　特殊状態のマスの枠線の太さを変えた
+</div>
+</pre>
+</div>
+
+<div id="desc_AI_tenko" style="display:none;">
+<img src="./image/AI_tenko.jpg" >
+<strong>てんこ</strong>
+強さ　☆☆☆☆☆☆☆☆☆☆
+
+マインスイーパをやったことがないらしく、
+ルールを理解していないので、適当なマスをクリックすることしかできない。
+</div>
+
+<div id="desc_AI_anko" style="display:none;">
+<img src="./image/AI_anko.png" >
+<strong>あんこ</strong>
+強さ　★☆☆☆☆☆☆☆☆☆
+
+魔法少女。
+孤独にMine Seekerをやるプレイヤーを見て、
+「一人ぼっちは寂しいもんな」と相手をしてくれることになった。
+勝気な性格のため、地雷のありそうな場所を積極的に攻める。
+が、細かいことは考えるのが嫌いなので、確定地雷の計算はしない。
+</div>
+
+
+<div id="desc_" style="display:none;">
+</div>
+
+<div id="humanTurn">
+<pre>
+あなたの先攻です
+</pre>
+</div>
+<div id="comTurn">
+<pre>
+コンピュータの先攻です
+</pre>
+</div>
+
+<div id="humanWin">
+<pre>
+あなたが勝利しました！
+</pre>
+</div>
+<div id="comWin">
+<pre>
+コンピュータが勝利しました。
+</pre>
+</div>
+
+
+</body>
+</html>
